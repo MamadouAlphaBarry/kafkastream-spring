@@ -14,6 +14,8 @@ import java.util.function.Supplier;
 @Service
 public class PageEventService {
   @Bean
+  //un consumer est une methode qui retourne un lamda de type Consumer<T> qui consomme
+  //le donnèes disponible dans le topic du broker
     Consumer<PageEvent> pageEventConsumer(){
         return (input)->{
            System.out.println("*********Consumer*********");
@@ -22,6 +24,8 @@ public class PageEventService {
         };
     }
     @Bean
+
+    //Un Supplier est une methode qui retourne Supplier<T>qui posteles donnèes du type T dans le topic du broker
     public Supplier<PageEvent> producer(){
       return ()-> PageEvent.builder().duretion(new Date().getTime()).date(new Date()).name("Alpha").build();
     }

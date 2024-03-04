@@ -12,6 +12,7 @@ import java.util.Date;
 @RestController
 public class KafkRestController {
 @Autowired
+//Composant spring cloud streams qui permet d'adapter le broker disponible
     private StreamBridge bridge;
    @GetMapping("/publish/{topic}/{page}")
     PageEvent publish(@PathVariable(value = "topic") String topic,@PathVariable(value = "page") String page){
